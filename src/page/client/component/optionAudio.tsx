@@ -9,6 +9,7 @@ import { formStateAudio } from 'redux/audio/stateAudio';
 import ListPlaylistUser from "./listPlaylistUser";
 import { formStateUser } from 'redux/user/stateUser';
 import userPlaylist from "api/userPlaylist"
+import { handleDownload } from '../common/handle';
 
 interface OptionAudioIF<T> {
 
@@ -58,12 +59,12 @@ const OptionAudio: React.FC<OptionAudioIF<any>> = ({ ...props }) => {
                         <img width={35} height={35} src={stateAudio.audio?.image} alt="" />
                         <div>
                             <h6>{stateAudio.audio.title}</h6>
-                            <div style={{ marginTop: "-0.7rem" }}><span style={{ fontSize: "0.8rem" }}>view: {stateAudio.audio?.view}</span></div>
+                            <div style={{ marginTop: "-0.7rem" }}><span style={{ fontSize: "0.8rem" }}>Lượt nghe: {stateAudio.audio?.view}</span></div>
                         </div>
                     </div>
                     <hr style={{ margin: "-0.1rem 0 0.5rem 0" }} />
-                    <MenuItem>
-                        <a href={stateAudio.audio.audio} target="_blank"><AiOutlineDownload />&ensp; Tải xuống</a>
+                    <MenuItem onClick={() => handleDownload(stateAudio.audio)}>
+                        <span><AiOutlineDownload />&ensp; Tải xuống</span>
                     </MenuItem>
 
 

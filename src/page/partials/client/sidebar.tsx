@@ -66,12 +66,12 @@ const Sidebar: React.FC<SidebarIF<any>> = ({ ...props }) => {
           <ul>
             <Link to="/newmusic"><li><BsMusicNoteBeamed className="icon" />Nhạc mới</li></Link>
             <Link to="/category"><li><BsListUl className="icon" />Thể loại</li></Link>
-            <Link to="/toptrending"><li><AiFillStar className="icon" />Top thịnh hành</li></Link>
+            {/* <Link to="/toptrending"><li><AiFillStar className="icon" />Top thịnh hành</li></Link> */}
             {userState.token && userState.user ? <Link to="/listenTogether"><li><RiGroupFill className="icon" />Nghe cùng nhau</li></Link> : <a onClick={() => setIsLogin({ status: true, path: '/listenTogether' })}><li><RiGroupFill className="icon" />Nghe cùng nhau</li></a>}
           </ul>
           <ul>
             <h6>Thư viện</h6>
-            <Link to="/favorite"><li><AiOutlineHeart className="icon" />Yêu thích</li></Link>
+            {/* <Link to="/favorite"><li><AiOutlineHeart className="icon" />Yêu thích</li></Link> */}
             {/* <Link to="/music"><li><BsMusicNoteBeamed className="icon" />Bài hát</li></Link>
             <Link to="/playlist" ><li><BiPlayCircle className="icon" />Playlist</li></Link> */}
             <Link to="/recently"><li><BiTimeFive className="icon" />Gần đây</li></Link>
@@ -81,14 +81,14 @@ const Sidebar: React.FC<SidebarIF<any>> = ({ ...props }) => {
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link>
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link>
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link> */}
-            {playlists.length !== 0 && playlists.map((item: any) => {
+            {/* {playlists.length !== 0 && playlists.map((item: any) => {
               // if(isShowPLName.filter(_ => _ === item._id).length !== 0) {
               //     return null
               // } ;
               return (
                 <Link key={item._id} to="/playlist/{item._id}" ><li><BiPlayCircle className="icon" />{item.name}</li></Link>
               )
-            })}
+            })} */}
           </ul>
         </div>
 

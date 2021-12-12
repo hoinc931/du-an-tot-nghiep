@@ -14,7 +14,7 @@ import AlertComponent from 'component/clientComponent/Alert';
 import userPlaylistApi from 'api/userPlaylistApi';
 import { handleAddToPlaylist, handleLike } from 'page/client/common/handle';
 import NameSongArtist from 'component/nameSongArtist';
-import { useHistory } from 'react-router-dom';
+import { Link, useHistory } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getlistAudio, playSong } from "redux/audio/actionAudio";
 import { formStateUser } from 'redux/user/stateUser';
@@ -177,7 +177,9 @@ const Recently: React.FC<RecentlyIF<any>> = ({ ...props }) => {
     }
     return (
         <>
-            {songs?.length === 0 ? <span className='text-white'>Bạn chưa nghe bài hát nào!?</span> : 
+            {songs?.length === 0 ? <div className='d-flex justify-content-center mt-5 align-content-center fs-5'>
+                <span className='text-white'>Bạn chưa nghe bài hát nào!? Hãy <Link className='fst-italic' to={'/'}>trở lại</Link> để nghe những bản nhạc hay nhất.</span>
+            </div> : 
             
             <div className="container-nhacmoi">
             <div className ="title-nhacmoi-tt grid-2">
