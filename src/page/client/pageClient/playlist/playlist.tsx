@@ -1,58 +1,118 @@
-import React, { useEffect,useState } from 'react';
-import { useSelector } from 'react-redux';
-import { formStateUser } from 'redux/user/stateUser';
+import React, { useEffect, useState } from 'react';
 import playlistApi from 'api/playlistApi';
-import { Link } from "react-router-dom";
-import { AiOutlineDownload, AiOutlineLink } from 'react-icons/ai';
-import { BiHeart } from 'react-icons/bi';
-import { FiPlayCircle } from 'react-icons/fi';
-import { HiOutlineDotsCircleHorizontal } from 'react-icons/hi';
-import { Select, MenuItem } from "@mui/material"
+import songApi from 'api/songApi';
+import playlistSongApi from 'api/playlistSongApi';
+import { tranFormDataId } from "component/MethodCommon";
 
-interface PlayListClient<T> {
+import { RouteComponentProps } from 'react-router-dom';
+import WantHearComponent from '../home/component/WantHearComponent';
+import Slider from 'react-slick';
+import { FiPlayCircle } from 'react-icons/fi';
+import { useDispatch } from 'react-redux';
+import { saveToLocalStorage } from 'page/client/common/localStorageCommon';
+import { playSong } from "redux/audio/actionAudio"
+
+interface PlayListClient<T> extends RouteComponentProps {
     userState: any | T,
 }
-
-const PlayListClient: React.FC<PlayListClient<any>> = ({ ...props }) => {
-    // document.title = "Playlist - Music Game";
-    //const userState = useSelector<{ user: any }>(state => state.user) as formStateUser;
+const settings_category = () => {
+    return ""
+}
+const styleCate = {
+    infinite: false,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+        {
+            breakpoint: 1024,
+            settings: {
+                slidesToShow: 3,
+                slidesToScroll: 3,
+                infinite: true,
+                dots: true
+            }
+        },
+        {
+            breakpoint: 600,
+            settings: {
+                slidesToShow: 2,
+                slidesToScroll: 2,
+                initialSlide: 2
+            }
+        },
+        {
+            breakpoint: 480,
+            settings: {
+                slidesToShow: 1,
+                slidesToScroll: 1
+            }
+        }
+    ]
+};
+const PlayListClient: React.FC<PlayListClient<any>> = ({ location, history, ...props }) => {
     const [playlists, setPlaylists] = useState([]);
+    const idPlayList = React.useRef<string>('');
+    const staticSong = React.useRef<any>([]);
+    const dispatch = useDispatch();
+    useEffect(() => {
+        const getId = (props.match.params as any).idPlayList;
+        if (!getId) {
+            return history.goBack();
+        }
+        idPlayList.current = getId
+    }, [])
 
-    // const getPlaylists = async () => {
-    //     const responsePL = await playlistApi.getAll({}); 
-    //     if (!responsePL || responsePL.status === "failed") {
-    //         console.error("Get playlist failed.");
-    //         return;
-    //     }
-    //     const { data } = responsePL;
-    //     console.log(data);
-    //     setPlaylists(data)
-    // }
 
     useEffect(() => {
-        // getPlaylists();
-        const getPlaylists = async () => {
-            const { data } = await playlistApi.getAll({}); 
-            setPlaylists(data);
-            //console.log(data);
-        }
-        getPlaylists();
+        (async () => {
+            const { data } = await playlistSongApi.getAll({ id_PlayList: idPlayList.current })
+
+            const { data: dataSongs } = await songApi.getAll({});
+            staticSong.current = tranFormDataId(dataSongs);
+
+            setPlaylists(data)
+        })();
     }, []);
-    console.log(playlists);
     return (
         <div className="container-nhacmoi">
-            <div className ="title-nhacmoi-tt grid-2">
-                <div className="text-title-nhacmoi-tt">
-                    <h3 className="color-nhacmoi-tt title_all">Playlist</h3>
-                </div>
+            <div className="title-nhacmoi-tt grid-2">
                 <div>
-                    {/* list map */}
-                    <h2>Hello Ngoc</h2>
-                    {playlists.length !== 0 && playlists.map((item: any) => {
 
-                       return `<h6>${item.name}</h6>`
-                    
-                    })}
+                    <div className="list-slider " style={{ width: "14rem" }}>
+                        {/* <h4 className="title_all">{item.name} </h4> */}
+                        {/* <MdNavigateNext className="icon" /> */}
+
+                        <div>
+                            <Slider {...styleCate}>
+                                {playlists.length !== 0 && playlists.map((item: any) => {
+                                    // console.log(staticSong.current)
+                                    const findSong = staticSong.current[item?.id_Songs];
+                                    // console.log(findSong);
+                                    return (
+                                        <div className="box" key={findSong?._id}>
+                                            <div className="box">
+                                                <figure>
+                                                    <img src={findSong?.image} alt={findSong?.title} />
+                                                </figure>
+                                                <div className="icon-box">
+                                                    <div>
+                                                        <FiPlayCircle onClick={() => {
+                                                            dispatch(playSong({ _id: findSong?._id }));
+                                                            saveToLocalStorage(findSong);
+                                                        }} className="icon" />
+                                                    </div>
+                                                </div>
+
+                                                <h6>{findSong?.title}</h6>
+                                            </div>
+                                        </div>
+                                    )
+                                })}
+                            </Slider>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </div>

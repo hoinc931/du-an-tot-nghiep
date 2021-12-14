@@ -81,14 +81,14 @@ const Sidebar: React.FC<SidebarIF<any>> = ({ ...props }) => {
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link>
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link>
             <Link to="/playlistDetail"><li>● Nhạc trẻ remix</li></Link> */}
-            {/* {playlists.length !== 0 && playlists.map((item: any) => {
+            {/* {playlists.map((item: any) => {
               // if(isShowPLName.filter(_ => _ === item._id).length !== 0) {
               //     return null
               // } ;
               return (
-                <Link key={item._id} to="/playlist/{item._id}" ><li><BiPlayCircle className="icon" />{item.name}</li></Link>
+                <Link key={item._id} to={`/playlist/${item?._id}`}><li><BiPlayCircle className="icon" />{item.name}</li></Link>
               )
-            })} */}
+            })}  */}
           </ul>
         </div>
 

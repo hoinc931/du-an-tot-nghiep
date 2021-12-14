@@ -4,7 +4,6 @@ import NotFound from "./page/client/pageClient/notFound/notFound";
 import HomeAdmin from "./page/admin/pageAdmin/home/home";
 import NotFoundAdmin from "./page/admin/pageAdmin/notFound/notFoundAdmin";
 import Toptrending from "./page/client/pageClient/toptrending/toptrending";
-import Favorite from "./page/client/pageClient/favorite/favorite";
 import Newmusic from "./page/client/pageClient/newmusic/newmusic";
 import PlayListClient from "./page/client/pageClient/playlist/playlist";
 import Blog from "./page/client/pageClient/blog/blog";
@@ -169,7 +168,7 @@ const Admin: propertyPage[] = [
         component: Profile,
         exact: false
     },
-        
+
     {
         path: "/admin/:pathNotFound",
         component: NotFoundAdmin,
@@ -240,11 +239,6 @@ const Client: propertyPage[] = [
         exact: false
     },
     {
-        path: "/favorite",
-        component: Favorite,
-        exact: false
-    },
-    {
         path: "/newmusic",
         component: Newmusic,
         exact: false
@@ -271,7 +265,7 @@ const Client: propertyPage[] = [
         exact: false
     },
     {
-        path: "/playlist",
+        path: "/playlist/:idPlayList",
         component: PlayListClient,
         exact: false
     },
