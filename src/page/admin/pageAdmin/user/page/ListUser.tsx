@@ -1,7 +1,7 @@
 import React, { useEffect, useReducer, useState } from 'react'
 import { page } from '../index'
 import useApi from 'api/useApi'
-import { Select, MenuItem,Menu, Avatar } from "@mui/material"
+import { Select, MenuItem, Menu, Avatar } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search'
 import { variableCommon } from "component/variableCommon"
 import PaginationUser from '../component/PaginationUser'
@@ -133,19 +133,6 @@ const ListUser: React.FC<ListUser<any>> = ({ changePage, set_id, ...props }) => 
                   onKeyDown={findUserName}
                   size="small"
                 />
-
-                <Select
-                  labelId="demoSelectLabel"
-                  id="demoSelectLabel"
-                  label="Age"
-                  value={10}
-                  size="small"
-                  style={{ width: 200 }}
-                >
-                  <MenuItem value={10}>Sort date</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
               </Typography>
 
               <Table stickyHeader>
@@ -192,35 +179,13 @@ const ListUser: React.FC<ListUser<any>> = ({ changePage, set_id, ...props }) => 
                               {gender === true ? 'Nữ' : 'Nam'}
                             </TableCell>
                             <TableCell align="left">
-                            <div>
-                                <Button
-                                  id="demo-positioned-button"
-                                  aria-controls="demo-positioned-menu"
-                                  aria-haspopup="true"
-                                  aria-expanded={open ? 'true' : undefined}
-                                  onClick={handleClick}
-                                >
-                                  ACTION
-                                </Button>
-                                <Menu
-                                  id="demo-positioned-menu"
-                                  aria-labelledby="demo-positioned-button"
-                                  anchorEl={anchorEl}
-                                  open={open}
-                                  onClose={handleClose}
-                                  anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                  transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                >
-                                  <div onClick={handleClose}><MenuItem onClick={() => { deleteOne(_id) }}>Delete</MenuItem></div>
-                                  <div onClick={handleClose}><MenuItem onClick={() => { onOpen<string>(_id) }}>More</MenuItem></div>
-                                </Menu>
-                              </div>
+                            <div className="dropdown">
+                                <button className="dropbtn">Action</button>
+                                <div className="dropdown-content">
+                                  <div onClick={() => { deleteOne(_id) }}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</div>
+                                  <div onClick={() => { onOpen<string>(_id) }}><i className="fa fa-info-circle" aria-hidden="true"></i> More</div>
+                                </div>
+                              </div> 
                             </TableCell>
                           </TableRow>
                         );

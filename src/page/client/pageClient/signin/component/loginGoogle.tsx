@@ -13,21 +13,24 @@ const LoginGoogle: React.FC<LoginGoogle<any>> = ({ history, displayAlert, ...pro
     const dispatchUser = useDispatch();
 
     const responseGoogle = async (response: any) => {
+        console.log(response)
         const LoginGg = await useApi.LoginGoogle(response);
 
         if (LoginGg.status !== "failed") {
             dispatchUser(saveInfo(LoginGg))
-
-            return history.replace('')
+            return window.location.href = window.location.origin
         }
         displayAlert(LoginGg.message)
+    }
+    const callBack = () => {
+        console.log('xin chao')
     }
     return (
         <GoogleLogin
             clientId="778656568797-qela2gigufg47tagd18n55ng9jv7n87p.apps.googleusercontent.com"
             buttonText="Google Login"
             onSuccess={responseGoogle}
-            onFailure={responseGoogle}
+            onFailure={callBack}
             cookiePolicy={'single_host_origin'}
         />
     )

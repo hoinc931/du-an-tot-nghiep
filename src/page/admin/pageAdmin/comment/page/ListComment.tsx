@@ -41,7 +41,6 @@ const ListComment: React.FC<ListComment<any>> = ({ changePage, set_id, ...props 
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //
   const classes = useStyle();
   const [state, dispatch] = useReducer(handleReducer, initialReducer);
   const [stateModalComment, setStateModalComment] = useState<any>({ display: false, _id: null });
@@ -133,19 +132,6 @@ const ListComment: React.FC<ListComment<any>> = ({ changePage, set_id, ...props 
                   onKeyDown={findName}
                   size="small"
                 />
-
-                <Select
-                  labelId="demoSelectLabel"
-                  id="demoSelectLabel"
-                  label="Age"
-                  value={10}
-                  size="small"
-                  style={{ width: 200 }}
-                >
-                  <MenuItem value={10}>Sort date</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
               </Typography>
 
               <Table stickyHeader>
@@ -178,7 +164,6 @@ const ListComment: React.FC<ListComment<any>> = ({ changePage, set_id, ...props 
                     state.Data.length && state.Display ?
                       state.Data.map((row: any, index: any) => {
                         const { title, rangeStart, comment, state, check, _id } = row;
-                        // console.log('Title Comment : ', comment);
                         return (
                           <TableRow hover role="checkbox" key={index}>
                             <TableCell align="left">
@@ -190,35 +175,13 @@ const ListComment: React.FC<ListComment<any>> = ({ changePage, set_id, ...props 
                             <TableCell align="left">{comment}</TableCell>
                             <TableCell align="left">{state === true ? 'Hiện' : 'Ẩn'}</TableCell>
                             <TableCell align="center">
-                              <div>
-                                <Button
-                                  id="demo-positioned-button"
-                                  aria-controls="demo-positioned-menu"
-                                  aria-haspopup="true"
-                                  aria-expanded={open ? 'true' : undefined}
-                                  onClick={handleClick}
-                                >
-                                  ACTION
-                                </Button>
-                                <Menu
-                                  id="demo-positioned-menu"
-                                  aria-labelledby="demo-positioned-button"
-                                  anchorEl={anchorEl}
-                                  open={open}
-                                  onClose={handleClose}
-                                  anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                  transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                >
-                                  <div onClick={handleClose}><MenuItem onClick={() => { deleteOne(_id) }}>Delete</MenuItem></div>
-                                  <div onClick={handleClose}><MenuItem onClick={() => { onOpen<string>(_id) }}>More</MenuItem></div>
-                                </Menu>
-                              </div>
+                            <div className="dropdown">
+                                <button className="dropbtn">Action</button>
+                                <div className="dropdown-content">
+                                  <div onClick={() => { deleteOne(_id) }}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</div>
+                                  <div onClick={() => { onOpen<string>(_id) }}><i className="fa fa-info-circle" aria-hidden="true"></i> More</div>
+                                </div>
+                              </div> 
                             </TableCell>
                           </TableRow>
                         );

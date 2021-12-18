@@ -21,7 +21,7 @@ const LikeSong: React.FC<LikeSongIF<any>> = ({ ...props }) => {
                 id_User: _id
             }
             const [data, error] = await HandleGet(LikeSongApi.getAll, query);
-            const [dataSong, errorSong] = await HandleGet(SongApi.getAll);
+            const [dataSong, errorSong] = await HandleGet(SongApi.getAll, {status:true});
             if (error) return;
             setLikeSong((value: any) => ({ ...value, data: [data?.data], dataSong: tranFormDataId(dataSong?.data) }))
             setLoading(false);
@@ -31,6 +31,18 @@ const LikeSong: React.FC<LikeSongIF<any>> = ({ ...props }) => {
             setLoading(false);
         }
     }, [])
+
+    // console.log('like song: ', likeSong)
+    const handleUnLike = (id_song: string) => {
+        const newData = (likeSong.data[0] as any).filter( (i: any) => i.id_Songs !== id_song)
+        const newDataSong = Object.keys(likeSong.dataSong).reduce((object: any, key: any) => {
+            if (key !== '6185f2c7cfd3694a1c1d60cb') {
+                object[key] = likeSong.dataSong[key]
+            }
+            return object
+        }, {})
+        setLikeSong((value: any) => ({ ...value, data: [newData], dataSong: newDataSong }))
+    }
     return (
         <>
             {loading && <Loadings/> }
@@ -38,7 +50,7 @@ const LikeSong: React.FC<LikeSongIF<any>> = ({ ...props }) => {
                 <div className="box-slider">
                     <Slide data={likeSong} />
                 </div>
-                <ListSong data={likeSong} />
+                <ListSong data={likeSong} handleUnLike={handleUnLike} />
             </div>
 
         </>

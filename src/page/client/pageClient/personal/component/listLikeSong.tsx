@@ -14,6 +14,8 @@ import GetTimeAudio from "component/getTimeAudio";
 import { useDispatch } from "react-redux";
 import { playSong } from "redux/audio/actionAudio";
 import { saveToLocalStorage } from 'page/client/common/localStorageCommon';
+import { AiFillDelete } from 'react-icons/ai';
+
 interface ListLikeSongIF<T> {
 
 }
@@ -23,6 +25,7 @@ const ListLikeSong: React.FC<ListLikeSongIF<any>> = ({ ...props }) => {
     const [likeSong, setLikeSong] = useState({ display: true, data: [], dataSong: [] });
     const { user: { _id } } = useSelector<{ user: any }>(state => state.user) as formStateUser;
     const dispatch = useDispatch();
+    window.scroll(0,0)
 
     const openPopover = (event: any) => {
         setAnchor(event.currentTarget);
@@ -38,7 +41,7 @@ const ListLikeSong: React.FC<ListLikeSongIF<any>> = ({ ...props }) => {
                 id_User: _id
             }
             const [data, error] = await HandleGet(LikeSongApi.getAll, query);
-            const [dataSong, errorSong] = await HandleGet(SongApi.getAll);
+            const [dataSong, errorSong] = await HandleGet(SongApi.getAll, {status: true});
             if (error) return;
             setLikeSong((value: any) => ({ ...value, data: [...data?.data], dataSong: tranFormDataId(dataSong?.data) }))
         })()
@@ -69,7 +72,8 @@ const ListLikeSong: React.FC<ListLikeSongIF<any>> = ({ ...props }) => {
                         </div>
                         <div className="icon_item">
                             <AiOutlineDownload className="icon" />
-                            <AiFillHeart className="icon" />
+                            {/* <AiFillDelete className='icon' /> */}
+                            {/* <AiFillHeart className="icon" /> */}
                             <IoMdAdd className="icon" onClick={openPopover} />
                             <Popover
                                 open={Boolean(anchor)}

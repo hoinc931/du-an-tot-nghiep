@@ -2,7 +2,7 @@ import React, { useEffect, useReducer, useState } from 'react'
 import { makeStyles } from "@mui/styles"
 import songApi from 'api/songApi'
 import { page } from '../index'
-import { Select, MenuItem,Menu, Avatar } from "@mui/material"
+import { Select, MenuItem, Menu, Avatar } from "@mui/material"
 import SearchIcon from '@mui/icons-material/Search'
 import { variableCommon } from "component/variableCommon"
 import PaginationSong from '../component/PaginationSong'
@@ -41,7 +41,6 @@ const ListSong: React.FC<ListSong<any>> = ({ changePage, set_id, ...props }) => 
   const handleClose = () => {
     setAnchorEl(null);
   };
-  //
   const classes = useStyle();
   const [state, dispatch] = useReducer(handleReducer, initialReducer);
   const [stateModalSong, setStateModalSong] = useState<any>({ display: false, _id: null });
@@ -120,7 +119,7 @@ const ListSong: React.FC<ListSong<any>> = ({ changePage, set_id, ...props }) => 
         }}
       >
         <div style={{ flexBasis: 1000, margin: '0 auto' }}>
-        <h2 className="mb-5">Music</h2>
+          <h2 className="mb-5">Music</h2>
           <Paper sx={{ width: '100%' }}>
             <TableContainer style={{ padding: 20 }}>
               <Typography style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -132,19 +131,6 @@ const ListSong: React.FC<ListSong<any>> = ({ changePage, set_id, ...props }) => 
                   onKeyDown={findName}
                   size="small"
                 />
-
-                <Select
-                  labelId="demoSelectLabel"
-                  id="demoSelectLabel"
-                  label="Age"
-                  value={10}
-                  size="small"
-                  style={{ width: 200 }}
-                >
-                  <MenuItem value={10}>Sort date</MenuItem>
-                  <MenuItem value={20}>Twenty</MenuItem>
-                  <MenuItem value={30}>Thirty</MenuItem>
-                </Select>
               </Typography>
 
               <Table stickyHeader>
@@ -171,7 +157,7 @@ const ListSong: React.FC<ListSong<any>> = ({ changePage, set_id, ...props }) => 
                 </TableHead>
 
                 <TableBody>
-                  { // Tối về kiểm tra luồng chạy state.Data
+                  {
                     state.Data.length && state.Display ?
                       state.Data.map((row: any, index: any) => {
                         const { title, image, view, active, check, _id } = row;
@@ -191,36 +177,14 @@ const ListSong: React.FC<ListSong<any>> = ({ changePage, set_id, ...props }) => 
                             </TableCell>
                             <TableCell align="left">{view}</TableCell>
                             <TableCell align='center'>
-                            <div>
-                                <Button
-                                  id="demo-positioned-button"
-                                  aria-controls="demo-positioned-menu"
-                                  aria-haspopup="true"
-                                  aria-expanded={open ? 'true' : undefined}
-                                  onClick={handleClick}
-                                >
-                                  ACTION
-                                </Button>
-                                <Menu
-                                  id="demo-positioned-menu"
-                                  aria-labelledby="demo-positioned-button"
-                                  anchorEl={anchorEl}
-                                  open={open}
-                                  onClose={handleClose}
-                                  anchorOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                  transformOrigin={{
-                                    vertical: 'top',
-                                    horizontal: 'left',
-                                  }}
-                                >
-                                  <div onClick={handleClose}><MenuItem onClick={() => { deleteOne(_id) }}>Delete</MenuItem></div>
-                                  <div onClick={handleClose}><MenuItem onClick={() => { navigatePage(page.UpdateSong, _id) }}>Edit</MenuItem></div>
-                                  <div onClick={handleClose}><MenuItem onClick={() => { onOpen<string>(_id) }}>More</MenuItem></div>
-                                </Menu>
-                              </div>
+                            <div className="dropdown">
+                                <button className="dropbtn">Action</button>
+                                <div className="dropdown-content">
+                                  <div onClick={() => { deleteOne(_id) }}><i className="fa fa-trash-o" aria-hidden="true"></i> Delete</div>
+                                  <div onClick={() => { navigatePage(page.UpdateSong, _id) }}><i className="fa fa-pencil-square-o" aria-hidden="true"></i> Edit</div>
+                                  <div onClick={() => { onOpen<string>(_id) }}><i className="fa fa-info-circle" aria-hidden="true"></i> More</div>
+                                </div>
+                              </div> 
                             </TableCell>
                           </TableRow>
                         )
