@@ -598,7 +598,7 @@ const HtmlEmail2 = (data, hash) => {
                                     <tbody>
                                       <tr>
                                         <td style="padding: 13px 17px; border-radius: 8px; background-color: #1595E7;" bgcolor="#1595E7" valign="top" align="center">
-                                          <a href="http://localhost:3000/comfirm-password/${data._id}/${hash}" style="line-height: 1.5; text-decoration: none; word-break: break-word; font-weight: 500; display: block; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff;">Đặt lại mật khẩu</a>
+                                          <a href="https://front-music-gaming-cizk6nh1t-phamdactai9x66.vercel.app/comfirm-password/${data._id}/${hash}" style="line-height: 1.5; text-decoration: none; word-break: break-word; font-weight: 500; display: block; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff;">Đặt lại mật khẩu</a>
                                         </td>
                                       </tr>
                                     </tbody>
