@@ -191,7 +191,7 @@ const HtmlEmail1 = (data, hash) => {
 														<tr>
 															<td>
 																<div align="center">
-																	<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.example.com" style="height:42px;width:165px;v-text-anchor:middle;" arcsize="0%" stroke="false" fillcolor="#ffffff"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#000000; font-family:Georgia, 'Times New Roman', serif; font-size:14px"><![endif]--><a href="https://front-music-gaming-cizk6nh1t-phamdactai9x66.vercel.app/verify/${data._id}/${hash}" target="_blank" style="text-decoration:none;display:inline-block;color:#000000;background-color:#ffffff;border-radius:0px;width:auto;border-top:1px solid #ffffff;border-right:1px solid #ffffff;border-bottom:1px solid #ffffff;border-left:1px solid #ffffff;padding-top:5px;padding-bottom:5px;font-family:'Bitter', Georgia, Times, 'Times New Roman', serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:14px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><span style="font-size: 14px; line-height: 28px;" data-mce-style="font-size: 14px; line-height: 28px;"><strong>Kích hoạt tài khoản</strong></span></span></span></a>
+																	<!--[if mso]><v:roundrect xmlns:v="urn:schemas-microsoft-com:vml" xmlns:w="urn:schemas-microsoft-com:office:word" href="https://www.example.com" style="height:42px;width:165px;v-text-anchor:middle;" arcsize="0%" stroke="false" fillcolor="#ffffff"><w:anchorlock/><v:textbox inset="0px,0px,0px,0px"><center style="color:#000000; font-family:Georgia, 'Times New Roman', serif; font-size:14px"><![endif]--><a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/verify/${data._id}/${hash}" target="_blank" style="text-decoration:none;display:inline-block;color:#000000;background-color:#ffffff;border-radius:0px;width:auto;border-top:1px solid #ffffff;border-right:1px solid #ffffff;border-bottom:1px solid #ffffff;border-left:1px solid #ffffff;padding-top:5px;padding-bottom:5px;font-family:'Bitter', Georgia, Times, 'Times New Roman', serif;text-align:center;mso-border-alt:none;word-break:keep-all;"><span style="padding-left:20px;padding-right:20px;font-size:14px;display:inline-block;letter-spacing:normal;"><span style="font-size: 16px; line-height: 2; word-break: break-word; mso-line-height-alt: 32px;"><span style="font-size: 14px; line-height: 28px;" data-mce-style="font-size: 14px; line-height: 28px;"><strong>Kích hoạt tài khoản</strong></span></span></span></a>
 																	<!--[if mso]></center></v:textbox></v:roundrect><![endif]-->
 																</div>
 															</td>
@@ -242,8 +242,8 @@ const HtmlEmail1 = (data, hash) => {
 															<td>
 																<table class="social-table" width="72px" border="0" cellpadding="0" cellspacing="0" role="presentation" align="center" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
 																	<tr>
-																		<td style="padding:0 2px 0 2px;"><a href="https://www.example.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-white/facebook@2x.png" width="32" height="32" alt="Facebook" title="facebook" style="display: block; height: auto; border: 0;"></a></td>
-																		<td style="padding:0 2px 0 2px;"><a href="https://www.example.com" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-white/instagram@2x.png" width="32" height="32" alt="Instagram" title="instagram" style="display: block; height: auto; border: 0;"></a></td>
+																		<td style="padding:0 2px 0 2px;"><a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-white/facebook@2x.png" width="32" height="32" alt="Facebook" title="facebook" style="display: block; height: auto; border: 0;"></a></td>
+																		<td style="padding:0 2px 0 2px;"><a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/" target="_blank"><img src="https://app-rsrc.getbee.io/public/resources/social-networks-icon-sets/t-only-logo-white/instagram@2x.png" width="32" height="32" alt="Instagram" title="instagram" style="display: block; height: auto; border: 0;"></a></td>
 																	</tr>
 																</table>
 															</td>
@@ -542,7 +542,7 @@ const HtmlEmail2 = (data, hash) => {
                             <tbody>
                               <tr>
                                 <td align="center" valign="top" style="padding: 10px;">
-                                  <a href="http://example.com" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/anc.png" width="130" height="" alt="" style="height: auto; max-width: 100%; border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff; font-size: 14px;"></a>
+                                  <a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/anc.png" width="130" height="" alt="" style="height: auto; max-width: 100%; border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff; font-size: 14px;"></a>
                                 </td>
                               </tr>
                               <tr>
@@ -598,7 +598,7 @@ const HtmlEmail2 = (data, hash) => {
                                     <tbody>
                                       <tr>
                                         <td style="padding: 13px 17px; border-radius: 8px; background-color: #1595E7;" bgcolor="#1595E7" valign="top" align="center">
-                                          <a href="https://front-music-gaming-cizk6nh1t-phamdactai9x66.vercel.app/comfirm-password/${data._id}/${hash}" style="line-height: 1.5; text-decoration: none; word-break: break-word; font-weight: 500; display: block; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff;">Đặt lại mật khẩu</a>
+                                          <a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/comfirm-password/${data._id}/${hash}" style="line-height: 1.5; text-decoration: none; word-break: break-word; font-weight: 500; display: block; font-family: 'Fira Sans', Helvetica, Arial, sans-serif; font-size: 16px; color: #ffffff;">Đặt lại mật khẩu</a>
                                         </td>
                                       </tr>
                                     </tbody>
@@ -654,9 +654,9 @@ const HtmlEmail2 = (data, hash) => {
                                               <tbody>
                                                 <tr>
                                                   <td style="font-family: Arial, sans-serif; font-size: 19px;" valign="top">
-                                                    <a href="http://example.com" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/facebook-dark-gray.png" width="20" height="20" alt="" style="border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff;"></a>
+                                                    <a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/facebook-dark-gray.png" width="20" height="20" alt="" style="border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff;"></a>
                                                     <span>&nbsp;&nbsp;</span>
-                                                    <a href="http://example.com" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/instagram-dark-gray.png" width="21" height="20" alt="" style="border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff;"></a>
+                                                    <a href="https://front-music-gaming-86505tak6-phamdactai9x66.vercel.app/" style="text-decoration: none;"><img src="https://d15k2d11r6t6rl.cloudfront.net/public/users/Integrators/BeeProAgency/739595_722755/instagram-dark-gray.png" width="21" height="20" alt="" style="border: 0; line-height: 100%; outline: 0; -ms-interpolation-mode: bicubic; color: #ffffff;"></a>
                                                   </td>
                                                 </tr>
                                               </tbody>
